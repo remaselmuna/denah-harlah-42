@@ -1,0 +1,12 @@
+.leaflet-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.stand-icon {
+  transform: rotate(-8deg);
+}
+
+.sr-only {
+  display: none;
+}
