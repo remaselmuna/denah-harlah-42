@@ -1,25 +1,19 @@
-import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from "react-leaflet";
+import {
+    MapContainer,
+    TileLayer,
+    GeoJSON,
+    LayersControl,
+    FeatureGroup,
+} from "react-leaflet";
 import "./App.css";
 import tileLayer from "./tileLayer";
 import geojson from "./data/geojson.json";
 import onEachFeature from "./utils/onEachFeature";
 import MapMaxBounds from "./components/MapMaxBounds";
-import customMarkerIcon, { soundsPoints } from "./utils/customMarkerIcon";
 import StandIcon from "./components/StandIcon";
+import MyMarkers from "./components/MyMarkers";
 
 function App() {
-    const MyMarkers = ({ data }) => {
-        return data.map((item, index) => (
-            <Marker
-                key={index}
-                icon={customMarkerIcon()}
-                position={{ lat: item.lat, lng: item.lng }}
-            >
-                <Popup>{item.title}</Popup>
-            </Marker>
-        ));
-    };
-
     return (
         <>
             <MapContainer
@@ -27,12 +21,26 @@ function App() {
                 zoom={16}
                 scrollWheelZoom={false}
             >
-                <TileLayer {...tileLayer} />
+                <LayersControl position="topright" collapsed={false}>
+                    <TileLayer {...tileLayer} />
 
-                <GeoJSON data={geojson} onEachFeature={onEachFeature} />
-                <MapMaxBounds />
-                <MyMarkers data={soundsPoints} />
-                <StandIcon />
+                    <LayersControl.Overlay
+                        name="Tampilkan pembagian lokasi"
+                        checked
+                    >
+                        <GeoJSON data={geojson} onEachFeature={onEachFeature} />
+                    </LayersControl.Overlay>
+                    <MapMaxBounds />
+                    <LayersControl.Overlay
+                        name="Tampilkan Lokasi Sound"
+                        checked
+                    >
+                        <FeatureGroup>
+                            <MyMarkers />
+                        </FeatureGroup>
+                    </LayersControl.Overlay>
+                    <StandIcon />
+                </LayersControl>
             </MapContainer>
         </>
     );

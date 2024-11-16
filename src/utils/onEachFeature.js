@@ -8,10 +8,12 @@ function onEachFeature(feature, layer) {
 
     layer.setStyle(colors);
 
-    layer.on("mouseover", function () {
+    layer.on("mouseover", function (e) {
         getVoivodeshipName(feature, layer);
 
         this.openPopup();
+        const location = e.latlng;
+        layer._map.flyToBounds([location])
 
         // style
         this.setStyle({

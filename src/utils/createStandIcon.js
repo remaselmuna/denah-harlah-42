@@ -10,7 +10,7 @@ const createStandIcon = () => {
   return new DivIcon({
     html: svgIcon,
     iconSize: [40, 40],
-    className: 'custom-stand-icon',
+    className: 'stand-icon',
     iconAnchor: [20, 20]
   })
 }
