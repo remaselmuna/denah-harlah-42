@@ -9,9 +9,10 @@ import "./App.css";
 import tileLayer from "./tileLayer";
 import geojson from "./data/geojson.json";
 import onEachFeature from "./utils/onEachFeature";
-import MapMaxBounds from "./components/MapMaxBounds";
+// import MapMaxBounds from "./components/MapMaxBounds";
 import StandIcon from "./components/StandIcon";
 import MyMarkers from "./components/MyMarkers";
+import LocationButton from "./components/LocationButton";
 
 function App() {
     return (
@@ -30,7 +31,7 @@ function App() {
                     >
                         <GeoJSON data={geojson} onEachFeature={onEachFeature} />
                     </LayersControl.Overlay>
-                    <MapMaxBounds />
+                    {/* <MapMaxBounds /> */}
                     <LayersControl.Overlay
                         name="Tampilkan Lokasi Sound"
                         checked
@@ -41,6 +42,7 @@ function App() {
                     </LayersControl.Overlay>
                     <StandIcon />
                 </LayersControl>
+                <LocationButton />
             </MapContainer>
         </>
     );

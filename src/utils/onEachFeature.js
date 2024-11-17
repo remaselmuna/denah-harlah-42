@@ -12,8 +12,10 @@ function onEachFeature(feature, layer) {
         getVoivodeshipName(feature, layer);
 
         this.openPopup();
-        const location = e.latlng;
-        layer._map.flyToBounds([location])
+        if (window.screen.width < 576) {
+            const location = e.latlng;
+            layer._map.flyToBounds([location])
+        }
 
         // style
         this.setStyle({
