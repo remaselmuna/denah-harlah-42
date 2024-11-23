@@ -38,8 +38,8 @@ export const soundsPoints = [
         title: "AM Pro Audio",
     },
     {
-        lat: -8.065008,
-        lng: 111.898513,
+        lat: -8.064591,
+        lng: 111.901152,
         title: "AMA Audio",
     },
 ];

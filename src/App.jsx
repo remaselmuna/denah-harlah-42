@@ -19,7 +19,7 @@ function App() {
         <>
             <MapContainer
                 center={[-8.064633, 111.900119]}
-                zoom={16}
+                zoom={17}
                 scrollWheelZoom={false}
             >
                 <LayersControl position="topright" collapsed={false}>
